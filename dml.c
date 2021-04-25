@@ -43,7 +43,7 @@ void reducePhase(int *params, int N, int src, int dst, ReduceFunction f) {
 
         // Asynchronously send parameter and synchronously receive parameter
         MPI_Request req;
-        MPI_Isend(&params[sendIdx], sendSize, MPI_INT, dst, 0, MPI_COMM_WORLD, &req);
+        MPI_Isend(&params[sendStart], sendSize, MPI_INT, dst, 0, MPI_COMM_WORLD, &req);
         MPI_Recv(tmp, recvSize, MPI_INT, src, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         f(params+recvStart, tmp, recvSize);
     }
@@ -64,8 +64,8 @@ void sharePhase(int *params, int N, int src, int dst) {
 
         // Asynchronously send parameter and synchronously receive parameter
         MPI_Request req;
-        MPI_Isend(&params[sendIdx], sendSize, MPI_INT, dst, 0, MPI_COMM_WORLD, &req);
-        MPI_Recv(&params[recvIdx], recvSize, MPI_INT, src, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        MPI_Isend(&params[sendStart], sendSize, MPI_INT, dst, 0, MPI_COMM_WORLD, &req);
+        MPI_Recv(&params[recvStart], recvSize, MPI_INT, src, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }
 }
 
