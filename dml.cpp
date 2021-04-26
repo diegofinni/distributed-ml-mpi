@@ -1,13 +1,9 @@
 #include <stdlib.h>
 
-#include "mpi.h"
-#include "dml.h"
+#include <mpi.h>
+#include "dml.hpp"
 
-// Safe macro definitions of min and max
-#define max(a,b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a >= _b ? _a : _b; })
-#define min(a,b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a <= _b ? _a : _b; })
-
-void sumFunc(double *dst, double *src, int n) {
+void sumFunc(double *dst, const double *src, int n) {
     for (int i = 0; i < n; i++) dst[i] += src[i];
 }
 
@@ -15,7 +11,7 @@ ReduceFunction sumReduce = &sumFunc;
 
 void reducePhase(double *params, int N, int src, int dst, ReduceFunction f) {
     int partitionSize = N / numProc;
-    double *tmp = (double*) malloc(partitionSize * sizeof(double));
+    auto *tmp = (double*) malloc(partitionSize * sizeof(double));
     // Reduction requires numProc iterations
     for (int i = 0; i < numProc - 1; i++) {
         // Calculate indexes of parameter array that will be sent and received

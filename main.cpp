@@ -1,12 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
 
-#include "mpi.h"
-#include "dml.h"
-
-#define SYSEXPECT(expr) do { if(!(expr)) { perror(__func__); exit(1); } } while(0)
-#define error_exit(fmt, ...) do { fprintf(stderr, "%s error: " fmt, __func__, ##__VA_ARGS__); exit(1); } while(0);
+#include <mpi.h>
+#include "dml.hpp"
 
 int rank, numProc;
 
@@ -30,17 +26,16 @@ int main(int argc, char* argv[]) {
     }
 
     // Placeholder until we get real data
-    double *params = (double*)malloc(N * sizeof(double));
+    auto *params = (double*)malloc(N * sizeof(double));
     ReduceFunction f = sumReduce;
     for (int i = 0; i < N; i++) params[i] = rank + 1;
     ringAllReduce(params, N, f);
-
     // Print results
     for (int i = 0; i < N; i++) {
         printf("(%d) %.3f ", rank, params[i]);
     }
     printf("\n");
-
+    
     // Exit program
     MPI_Finalize();
     return 0;
