@@ -1,5 +1,5 @@
 
-typedef void(*ReduceFunction)(double* dst, const double* src, int n);
+typedef void(*ReduceFunction)(double* dst, double*, int);
 
 extern int rank, numProc;
 
