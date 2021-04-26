@@ -1,24 +1,17 @@
-TARGET = dml
-OBJS += dml.o
-OBJS += main.o
+CC=mpic++
 
-CC = mpicc
-#CFLAGS = -Wall -Werror -DDEBUG -g
-CFLAGS = -std=gnu99 -Wall -g -O3
-CFLAGS += -MMD -MP
-LDFLAGS += $(LIBS)
+CFLAGS= -c -Wall
 
-default:	$(TARGET)
-all:		$(TARGET)
+all: prog
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+prog: main.o dml.o
+	$(CC) main.o dml.o -o dml
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+main.o: main.cpp
+	$(CC) $(CFLAGS) main.cpp
 
-DEPS = $(OBJS:%.o=%.d)
--include $(DEPS)
+dml.o: dml.cpp
+	$(CC) $(CFLAGS) dml.cpp
 
 clean:
-	rm $(TARGET) $(OBJS) $(DEPS) || true
+	rm -rf *.o 

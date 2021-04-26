@@ -1,8 +1,8 @@
 
-typedef void* (*ReduceFunction)(void* dst, void*, int);
+typedef void(*ReduceFunction)(double* dst, double*, int);
 
-int rank, numProc;
+extern int rank, numProc;
 
-ReduceFunction intSum, floatSum;
+extern ReduceFunction sumReduce;
 
-void ringAllReduce(int *params, int N, ReduceFunction f);
+void ringAllReduce(double *params, int N, ReduceFunction f);
