@@ -1,11 +1,11 @@
 #include <cstdlib>
+#include <cstdio>
 #include <mpi.h>
 #include "dml.hpp"
 
 MPI_Request *bcast_reqs;
 MPI_Comm *worlds;
 int my_rank, num_proc, bound, my_iter, *node_iters;
-
 
 inline static int rank_to_idx(int rank) {
     return (rank > my_rank) ? rank - 1 : rank;
@@ -41,7 +41,7 @@ ReduceFunction sum_reduce = &sum_func;
 
 void reduce_phase(double *params, int N, int src, int dst, ReduceFunction f) {
     int partition_size = N / num_proc;
-    auto *tmp = (double*) malloc(partition_size * sizeof(double));
+    auto *tmp = (double*) malloc(2 * partition_size * sizeof(double));
     // Reduction requires num_proc iterations
     for (int i = 0; i < num_proc - 1; i++) {
         // Calculate indexes of parameter array that will be sent and received
