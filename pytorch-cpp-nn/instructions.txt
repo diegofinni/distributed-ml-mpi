@@ -1,4 +1,4 @@
-Instructions on how to run the neural net (runs on random generated data)
+cInstructions on how to run the neural net (runs on random generated data)
 
 delete the build folder
 

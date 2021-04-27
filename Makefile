@@ -16,7 +16,6 @@ default_target: all
 
 # Disable VCS-based implicit rules.
 % : %,v
->>>>>>> cmake
 
 # Disable VCS-based implicit rules.
 % : RCS/%
@@ -95,9 +94,6 @@ all: cmake_check_build_system
 
 # The main clean target
 clean:
-<<<<<<< HEAD
-	rm -rf *.o 
-=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
@@ -209,3 +205,4 @@ help:
 cmake_check_build_system:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
+

@@ -1,8 +1,8 @@
 
 typedef void(*ReduceFunction)(double* dst, const double* src, int n);
 
-extern int rank, numProc;
+extern ReduceFunction sum_reduce;
 
-extern ReduceFunction sumReduce;
+void reduce(double *params, int N, ReduceFunction f);
 
-void ringAllReduce(double *params, int N, ReduceFunction f);
+void init_mpi_env(int rank, int num_procs, int stale_bound);
