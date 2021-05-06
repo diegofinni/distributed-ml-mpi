@@ -1,11 +1,11 @@
 #include <cstdlib>
 #include <cstdio>
 #include <mpi.h>
-#include "dml.hpp"
+#include "decentralized.hpp"
 
 MPI_Request *bcast_reqs;
 MPI_Comm *worlds;
-int my_rank, num_proc, bound, my_iter, *node_iters;
+int my_rank, num_proc, my_iter, *node_iters;
 
 inline static int rank_to_idx(int rank) {
     return (rank > my_rank) ? rank - 1 : rank;
@@ -27,7 +27,6 @@ static int check_bcasts() {
     while (idx != MPI_UNDEFINED) {
         int rank = idx_to_rank(idx);
         int rank_iter = node_iters[idx];
-        if ((my_rank - rank_iter) >= bound) return -1;
         MPI_Testany(num_proc-1, bcast_reqs, &idx, &flag, MPI_STATUS_IGNORE);
     }
     return 0;
@@ -39,7 +38,7 @@ void sum_func(double *dst, const double *src, int n) {
 
 ReduceFunction sum_reduce = &sum_func;
 
-void reduce_phase(double *params, int N, int src, int dst, ReduceFunction f) {
+void reduce_phase(vector<double>& params, int N, int src, int dst, ReduceFunction f) {
     int partition_size = N / num_proc;
     auto *tmp = (double*) malloc(2 * partition_size * sizeof(double));
     // Reduction requires num_proc iterations
@@ -58,11 +57,11 @@ void reduce_phase(double *params, int N, int src, int dst, ReduceFunction f) {
         MPI_Request req;
         MPI_Isend(&params[send_start], send_size, MPI_DOUBLE, dst, 0, MPI_COMM_WORLD, &req);
         MPI_Recv(tmp, recv_size, MPI_DOUBLE, src, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        f(params+recv_start, tmp, recv_size);
+        f(&(*params.begin()) + recv_start, tmp, recv_size);
     }
 }
 
-void share_phase(double *params, int N, int src, int dst) {
+void share_phase(vector<double>& params, int N, int src, int dst) {
     int partition_size = N / num_proc;
     for (int i = 0; i < num_proc - 1; i++) {
         // Calculate indexes of parameter array that will be sent and received
@@ -82,7 +81,7 @@ void share_phase(double *params, int N, int src, int dst) {
     }
 }
 
-void reduce(double *params, int N, ReduceFunction f) {
+void reduce(vector<double>& params, int N, ReduceFunction f) {
     // Compute my_ranks of neighbors that node will communicate with
     int src = (my_rank == 0) ? num_proc - 1 : my_rank - 1;
     int dst = (my_rank == num_proc - 1) ? 0 : my_rank + 1;
@@ -91,10 +90,9 @@ void reduce(double *params, int N, ReduceFunction f) {
     share_phase(params, N, src, dst);
 }
 
-void init_mpi_env(int rank, int num_procs, int stale_bound) {
+void init_mpi_env(int rank, int num_procs) {
     my_rank = rank;
     num_proc = num_procs;
-    bound = stale_bound;
 
     bcast_reqs = (MPI_Request*) malloc((num_proc-1) * sizeof(MPI_Request));
     worlds = (MPI_Comm*) malloc(num_proc * sizeof(MPI_Comm));

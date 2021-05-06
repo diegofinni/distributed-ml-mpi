@@ -1,2 +1,2 @@
-# Empty dependencies file for app.
+# Empty dependencies file for dml.
 # This may be replaced when dependencies are built.

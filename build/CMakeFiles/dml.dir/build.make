@@ -56,7 +56,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi"
+CMAKE_BINARY_DIR = "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dml.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/dml.dir/progress.make
 include CMakeFiles/dml.dir/flags.make
 
 CMakeFiles/dml.dir/main.cpp.o: CMakeFiles/dml.dir/flags.make
-CMakeFiles/dml.dir/main.cpp.o: main.cpp
+CMakeFiles/dml.dir/main.cpp.o: ../main.cpp
 CMakeFiles/dml.dir/main.cpp.o: CMakeFiles/dml.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dml.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dml.dir/main.cpp.o -MF CMakeFiles/dml.dir/main.cpp.o.d -o CMakeFiles/dml.dir/main.cpp.o -c "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dml.dir/main.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dml.dir/main.cpp.o -MF CMakeFiles/dml.dir/main.cpp.o.d -o CMakeFiles/dml.dir/main.cpp.o -c "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp"
 
 CMakeFiles/dml.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dml.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp" > CMakeFiles/dml.dir/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp" > CMakeFiles/dml.dir/main.cpp.i
 
 CMakeFiles/dml.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dml.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp" -o CMakeFiles/dml.dir/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp" -o CMakeFiles/dml.dir/main.cpp.s
 
 CMakeFiles/dml.dir/decentralized.cpp.o: CMakeFiles/dml.dir/flags.make
-CMakeFiles/dml.dir/decentralized.cpp.o: decentralized.cpp
+CMakeFiles/dml.dir/decentralized.cpp.o: ../decentralized.cpp
 CMakeFiles/dml.dir/decentralized.cpp.o: CMakeFiles/dml.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dml.dir/decentralized.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dml.dir/decentralized.cpp.o -MF CMakeFiles/dml.dir/decentralized.cpp.o.d -o CMakeFiles/dml.dir/decentralized.cpp.o -c "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dml.dir/decentralized.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dml.dir/decentralized.cpp.o -MF CMakeFiles/dml.dir/decentralized.cpp.o.d -o CMakeFiles/dml.dir/decentralized.cpp.o -c "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp"
 
 CMakeFiles/dml.dir/decentralized.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dml.dir/decentralized.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp" > CMakeFiles/dml.dir/decentralized.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp" > CMakeFiles/dml.dir/decentralized.cpp.i
 
 CMakeFiles/dml.dir/decentralized.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dml.dir/decentralized.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp" -o CMakeFiles/dml.dir/decentralized.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp" -o CMakeFiles/dml.dir/decentralized.cpp.s
 
 # Object files for target dml
 dml_OBJECTS = \
@@ -110,7 +110,7 @@ dml: CMakeFiles/dml.dir/decentralized.cpp.o
 dml: CMakeFiles/dml.dir/build.make
 dml: /usr/local/Cellar/open-mpi/4.1.0/lib/libmpi.dylib
 dml: CMakeFiles/dml.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable dml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable dml"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dml.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +122,6 @@ CMakeFiles/dml.dir/clean:
 .PHONY : CMakeFiles/dml.dir/clean
 
 CMakeFiles/dml.dir/depend:
-	cd "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles/dml.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build/CMakeFiles/dml.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/dml.dir/depend
 

@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build",
+  "command": "/usr/bin/clang++  -I/usr/local/Cellar/open-mpi/4.1.0/include -I/Usr/local/include -I/Users/diegosanmiguel/Documents/Personal -I\"/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/Work/afs/private/15418/distributed-ml-mpi\" -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++11 -o CMakeFiles/dml.dir/main.cpp.o -c \"/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp\"",
+  "file": "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp"
+},
+{
+  "directory": "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build",
+  "command": "/usr/bin/clang++  -I/usr/local/Cellar/open-mpi/4.1.0/include -I/Usr/local/include -I/Users/diegosanmiguel/Documents/Personal -I\"/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/Work/afs/private/15418/distributed-ml-mpi\" -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++11 -o CMakeFiles/dml.dir/decentralized.cpp.o -c \"/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp\"",
+  "file": "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp"
+}
+]

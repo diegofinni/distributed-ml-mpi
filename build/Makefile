@@ -60,7 +60,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi"
+CMAKE_BINARY_DIR = "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build/CMakeFiles" "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
