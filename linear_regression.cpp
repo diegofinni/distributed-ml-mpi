@@ -1,10 +1,10 @@
 /*
  * linear-regression.cpp is an simple ML algorithm to make predictions based on a linear regression model.
  * 
- * Input data is stored as a 2d vector. Each row is a pair of vector<double> data and double label (0 or 1).
- * We delete data  that is not numeric.
+ * Input data is stored as a 2d vector. Each row is vector<double> data, where the last element is the label.
+ * We have to delete data that is not numeric.
  * 
- * 
+ * There is timing of exectution enabled for testing purposes.
  */
 
 #include <iostream>
@@ -15,7 +15,14 @@
 #include <fstream> // ifstream
 #include <algorithm>
 #include <math.h>
+#include <chrono>
 using namespace std;
+
+// Timing 
+using chrono::high_resolution_clock;
+using chrono::duration_cast;
+using chrono::duration;
+using chrono::milliseconds;
 
 // TODO: CUDA optimizations (will probably use Thrust, CUDA's C++ library)
 int CUDA_ENABLE = 0;
@@ -30,8 +37,8 @@ string label2;
  *
  * No column of training data can be non-numeric (delete column)
  */
-vector<pair<vector<double>,double> > input_data(string infile) {
-    vector<pair<vector<double>,double> > data;
+vector<vector<double> > input_data(string infile) {
+    vector<vector<double> > data;
     ifstream input_file(infile);
     int row, num_cols = 0;
     while (input_file) {
@@ -49,7 +56,6 @@ vector<pair<vector<double>,double> > input_data(string infile) {
             // Loop through each col
             while (ss) {
                 string cell;
-                cout << cell << " ";
                 if (!getline(ss, cell, ',')) break;
                 // Data case
                 if(col < num_cols-1) {
@@ -82,11 +88,12 @@ vector<pair<vector<double>,double> > input_data(string infile) {
                         valid_row = false;
                         break;
                     }
+                    record.push_back(label);
                 }
                 col += 1;
             }
             if(valid_row) {
-                data.push_back(make_pair(record,label));
+                data.push_back(record);
             }
         }
         row++;
@@ -103,17 +110,17 @@ void init_theta(int num_features) {
         // We include an extra parameter for bias term
         theta.push_back(0);
     }
-    cout << "PUSHED BACK: " << num_features+1 << endl;
 }
 
 /*
  * dotprod takes the dotprod of v1 and v2, 
  * using the size of v2 (for functionality despite bias term)
  */
-double dotprod(vector<double> v1, vector<double> v2) {
+double ml_dotprod(vector<double> params, vector<double> data) {
     double result = 0;
-    for(int i=0; i<v2.size(); i++) {
-        result += v1[i]*v2[i];
+    // We don't include the last element of data, as it is the label
+    for(int i=0; i<data.size()-1; i++) {
+        result += params[i]*data[i];
     }
     return result;
 }
@@ -137,7 +144,7 @@ double sigmoid(double x) {
  * 
  * Loss function: cross-entropy loss function
  */
-void SGD_step(pair<vector<double>,double> data_row, double learning_rate) {
+void SGD_step(vector<double> data_row, double learning_rate) {
     /*
     // Debugging: Print theta
     cout << "Theta: ";
@@ -147,16 +154,15 @@ void SGD_step(pair<vector<double>,double> data_row, double learning_rate) {
     cout << endl;
     */
     
-    vector<double> data_vals = data_row.first;
     double bias = theta.back();
-    double label = data_row.second;
-    double theta_dot_x = dotprod(theta, data_vals);
+    double label = data_row.back();
+    double theta_dot_x = ml_dotprod(theta, data_row);
     //cout << "Dot Prod: " << theta_dot_x << endl;
     double sig = sigmoid(theta_dot_x + bias);
     //cout << "Sig: " << sig << " Label: " << label << endl;
     double gradient = (sig - label);
     for(int i=0; i<theta.size()-1; i++) {
-        theta[i] -= learning_rate * gradient * data_vals[i];
+        theta[i] -= learning_rate * gradient * data_row[i];
     }
     theta.back() -= learning_rate * gradient;
 }
@@ -164,11 +170,10 @@ void SGD_step(pair<vector<double>,double> data_row, double learning_rate) {
 /* 
  * train learns appropriate theta based on training data
 */
-void train(vector<pair<vector<double>,double> > data, double learning_rate, int num_epoch) {
+void train(vector<vector<double> > data, double learning_rate, int num_epoch) {
     int rows = data.size();
     for(int i=0; i<num_epoch; i++) {
         for(int j=0; j<rows; j++) {
-            vector<double> data_vals = data[j].first;
             SGD_step(data[j], learning_rate);
         }
     }
@@ -225,7 +230,7 @@ int main(int argc, char **argv){
     // Initializations
     if(!parse_flags(argc, argv, 5)) return 0;
     // Data is stored as a 2d vector. Each row is a pair of data, label.
-    vector<pair<vector<double>,double> > data = input_data(infile);
+    vector<vector<double> > data = input_data(infile);
     
     /*
     // Debug: print the data vector
@@ -238,14 +243,28 @@ int main(int argc, char **argv){
         cout << "Label: " << row.second << endl;
     }
     */
-    init_theta((data[0].first).size());
+    init_theta((data[0]).size() - 1);
 
     double learning_rate = 0.01;
     int num_epoch = 1;
+
+    auto t1 = high_resolution_clock::now();
     train(data, learning_rate, num_epoch);
+    auto t2 = high_resolution_clock::now();
+
+    /* Getting number of milliseconds as a double. */
+    duration<double, milli> ms_double = t2 - t1;
+
+    cout << "Time of training: " << ms_double.count() << "ms" << endl;
 
     // Now theta is updated based on training data.
     // Send to other nodes
 
+    // Debugging: Print theta
+    cout << "Theta: ";
+    for(auto param : theta) {
+        cout << param << " ";
+    }
+    cout << endl;
     return 0; 
 }

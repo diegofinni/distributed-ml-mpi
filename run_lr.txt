@@ -1,0 +1,2 @@
+g++ linear_regression.cpp -o lr
+./lr .\data\weatherAUS.csv out.txt Yes No
