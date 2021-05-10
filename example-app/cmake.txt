@@ -1,0 +1,1 @@
+cmake -DCMAKE_PREFIX_PATH=/Users/nathanan/Library/Mobile\ Documents/com\~apple\~CloudDocs/Downloads/libtorch ..

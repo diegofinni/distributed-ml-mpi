@@ -9,14 +9,13 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include <fstream>
 #include <sstream> //istringstream
 #include <fstream> // ifstream
 #include <algorithm>
 #include <math.h>
 #include <chrono>
-using namespace std;
+#include "lr.hpp"
 
 // Timing 
 using chrono::high_resolution_clock;
@@ -24,13 +23,11 @@ using chrono::duration_cast;
 using chrono::duration;
 using chrono::milliseconds;
 
-// TODO: CUDA optimizations (will probably use Thrust, CUDA's C++ library)
-int CUDA_ENABLE = 0;
-// Optional: Sparse vectors
-int SPARSE_ENABLE = 0;
 vector<double> theta;
 string label1;
 string label2;
+int CUDA_ENABLE = 0;
+int SPARSE_ENABLE = 0;
 
 /*
  * input_data parses a csv file data into a 2d vector. Each row has vector data followed by the label (0 or 1).
@@ -160,17 +157,34 @@ void SGD_step(vector<double> data_row, double learning_rate) {
     //cout << "Dot Prod: " << theta_dot_x << endl;
     double sig = sigmoid(theta_dot_x + bias);
     //cout << "Sig: " << sig << " Label: " << label << endl;
+
     double gradient = (sig - label);
+    
+    if(gradient < 0.1) {
+        cout << "Correct" << endl;
+    }
+    else {
+        cout << "Wrong" << endl;
+    }
+    
     for(int i=0; i<theta.size()-1; i++) {
         theta[i] -= learning_rate * gradient * data_row[i];
     }
     theta.back() -= learning_rate * gradient;
+    /*
+    cout << "Theta: ";
+    for(auto param : theta) {
+        cout << param << " ";
+    }
+    cout << endl;
+    */
 }
 
 /* 
  * train learns appropriate theta based on training data
 */
 void train(vector<vector<double> > data, double learning_rate, int num_epoch) {
+    
     int rows = data.size();
     for(int i=0; i<num_epoch; i++) {
         for(int j=0; j<rows; j++) {
@@ -210,61 +224,4 @@ int parse_flags(int argc, char **argv, int offset) {
         }
     }
     return 1;
-}
-
-int main(int argc, char **argv){ 
-    if (argc < 3) {
-        cout << "Missing Input and/or Output file! Please see usage: \n";
-        print_usage();
-        return -1;
-    }
-    string infile = string(argv[1]);
-    string outfile = string(argv[2]);
-    cout << "The input file is: " << infile << endl;
-    cout << "The output file is: " << outfile << endl;
-    label1 = string(argv[3]);
-    label2 = string(argv[4]);
-    cout << "label1 is: " << "\'" << label1 << "\'" << endl;
-    cout << "label2 is: " << "\'" << label2 << "\'" << endl;
-
-    // Initializations
-    if(!parse_flags(argc, argv, 5)) return 0;
-    // Data is stored as a 2d vector. Each row is a pair of data, label.
-    vector<vector<double> > data = input_data(infile);
-    
-    /*
-    // Debug: print the data vector
-    for(auto row : data) {
-        cout << "Data: ";
-        for(auto cell : row.first) {
-            cout << cell << " ";
-        }
-        cout << endl;
-        cout << "Label: " << row.second << endl;
-    }
-    */
-    init_theta((data[0]).size() - 1);
-
-    double learning_rate = 0.01;
-    int num_epoch = 1;
-
-    auto t1 = high_resolution_clock::now();
-    train(data, learning_rate, num_epoch);
-    auto t2 = high_resolution_clock::now();
-
-    /* Getting number of milliseconds as a double. */
-    duration<double, milli> ms_double = t2 - t1;
-
-    cout << "Time of training: " << ms_double.count() << "ms" << endl;
-
-    // Now theta is updated based on training data.
-    // Send to other nodes
-
-    // Debugging: Print theta
-    cout << "Theta: ";
-    for(auto param : theta) {
-        cout << param << " ";
-    }
-    cout << endl;
-    return 0; 
 }

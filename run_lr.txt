@@ -1,2 +1,9 @@
-g++ linear_regression.cpp -o lr
-./lr .\data\weatherAUS.csv out.txt Yes No
+Run without MPI:
+
+g++ -o lr lr.cpp lr_main.cpp
+./lr data/weatherAUS.csv out.txt Yes No
+
+Run with MPI:
+mpic++ -o dml decentralized.cpp lr.cpp main.cpp
+mpirun -np 1 ./dml 20 0 data/smalldata.csv out.txt Yes No
+(Running out of address space?)
