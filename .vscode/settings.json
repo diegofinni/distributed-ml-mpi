@@ -3,6 +3,11 @@
         "algorithm": "cpp",
         "numeric": "cpp",
         "utility": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "set": "cpp",
+        "vector": "cpp",
+        "ostream": "cpp"
     }
 }

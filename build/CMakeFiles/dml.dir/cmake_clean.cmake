@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/dml.dir/decentralized.cpp.o"
-  "CMakeFiles/dml.dir/decentralized.cpp.o.d"
-  "CMakeFiles/dml.dir/main.cpp.o"
-  "CMakeFiles/dml.dir/main.cpp.o.d"
+  "CMakeFiles/dml.dir/master_node.cpp.o"
+  "CMakeFiles/dml.dir/master_node.cpp.o.d"
+  "CMakeFiles/dml.dir/serverTest.cpp.o"
+  "CMakeFiles/dml.dir/serverTest.cpp.o.d"
+  "CMakeFiles/dml.dir/worker_node.cpp.o"
+  "CMakeFiles/dml.dir/worker_node.cpp.o.d"
   "dml"
   "dml.pdb"
 )

@@ -9,7 +9,7 @@ include_directories(${MPI_INCLUDE_PATH})
 include_directories(/Usr/local/include)
 include_directories(/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi)
 
-add_executable(dml main.cpp decentralized.hpp decentralized.cpp)
+add_executable(dml serverTest.cpp master_node.hpp master_node.cpp worker_node.hpp worker_node.cpp)
 target_link_libraries(dml ${MPI_LIBRARIES})
 
 if(MPI_COMPILE_FLAGS)

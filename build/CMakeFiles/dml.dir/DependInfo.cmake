@@ -8,8 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/decentralized.cpp" "CMakeFiles/dml.dir/decentralized.cpp.o" "gcc" "CMakeFiles/dml.dir/decentralized.cpp.o.d"
-  "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/main.cpp" "CMakeFiles/dml.dir/main.cpp.o" "gcc" "CMakeFiles/dml.dir/main.cpp.o.d"
+  "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/master_node.cpp" "CMakeFiles/dml.dir/master_node.cpp.o" "gcc" "CMakeFiles/dml.dir/master_node.cpp.o.d"
+  "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/serverTest.cpp" "CMakeFiles/dml.dir/serverTest.cpp.o" "gcc" "CMakeFiles/dml.dir/serverTest.cpp.o.d"
+  "/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/worker_node.cpp" "CMakeFiles/dml.dir/worker_node.cpp.o" "gcc" "CMakeFiles/dml.dir/worker_node.cpp.o.d"
   )
 
 # Targets to which this target links.

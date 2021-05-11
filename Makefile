@@ -129,53 +129,77 @@ dml/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/build
 .PHONY : dml/fast
 
-decentralized.o: decentralized.cpp.o
-.PHONY : decentralized.o
+master_node.o: master_node.cpp.o
+.PHONY : master_node.o
 
 # target to build an object file
-decentralized.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/decentralized.cpp.o
-.PHONY : decentralized.cpp.o
+master_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/master_node.cpp.o
+.PHONY : master_node.cpp.o
 
-decentralized.i: decentralized.cpp.i
-.PHONY : decentralized.i
+master_node.i: master_node.cpp.i
+.PHONY : master_node.i
 
 # target to preprocess a source file
-decentralized.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/decentralized.cpp.i
-.PHONY : decentralized.cpp.i
+master_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/master_node.cpp.i
+.PHONY : master_node.cpp.i
 
-decentralized.s: decentralized.cpp.s
-.PHONY : decentralized.s
+master_node.s: master_node.cpp.s
+.PHONY : master_node.s
 
 # target to generate assembly for a file
-decentralized.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/decentralized.cpp.s
-.PHONY : decentralized.cpp.s
+master_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/master_node.cpp.s
+.PHONY : master_node.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+serverTest.o: serverTest.cpp.o
+.PHONY : serverTest.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/main.cpp.o
-.PHONY : main.cpp.o
+serverTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/serverTest.cpp.o
+.PHONY : serverTest.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+serverTest.i: serverTest.cpp.i
+.PHONY : serverTest.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/main.cpp.i
-.PHONY : main.cpp.i
+serverTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/serverTest.cpp.i
+.PHONY : serverTest.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+serverTest.s: serverTest.cpp.s
+.PHONY : serverTest.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/main.cpp.s
-.PHONY : main.cpp.s
+serverTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/serverTest.cpp.s
+.PHONY : serverTest.cpp.s
+
+worker_node.o: worker_node.cpp.o
+.PHONY : worker_node.o
+
+# target to build an object file
+worker_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/worker_node.cpp.o
+.PHONY : worker_node.cpp.o
+
+worker_node.i: worker_node.cpp.i
+.PHONY : worker_node.i
+
+# target to preprocess a source file
+worker_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/worker_node.cpp.i
+.PHONY : worker_node.cpp.i
+
+worker_node.s: worker_node.cpp.s
+.PHONY : worker_node.s
+
+# target to generate assembly for a file
+worker_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/worker_node.cpp.s
+.PHONY : worker_node.cpp.s
 
 # Help Target
 help:
@@ -186,12 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... dml"
-	@echo "... decentralized.o"
-	@echo "... decentralized.i"
-	@echo "... decentralized.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... master_node.o"
+	@echo "... master_node.i"
+	@echo "... master_node.s"
+	@echo "... serverTest.o"
+	@echo "... serverTest.i"
+	@echo "... serverTest.s"
+	@echo "... worker_node.o"
+	@echo "... worker_node.i"
+	@echo "... worker_node.s"
 .PHONY : help
 
 
