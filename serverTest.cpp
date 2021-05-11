@@ -14,23 +14,20 @@ int main(int argc, char* argv[]) {
 
     vector<double> init_params(10, 0);
     double lr = 0.01;
-    int num_epochs = 1;
+    int num_epochs = 2;
     int n_bound = 0;
 
-    switch (proc_rank) {
-        case 0:
-            init_master_node(init_params, 
-                            num_procs - 1,
-                            num_epochs,
-                            n_bound,
-                            lr);
-            manage_workers();
-            break;
-        default:
-            work(init_params, num_epochs, proc_rank);
-            break;
+    if (!proc_rank) {
+        init_master_node(init_params, 
+            num_procs - 1,
+            num_epochs,
+            n_bound,
+            lr);
+        manage_workers();
     }
-
+    else {
+        work(init_params, num_epochs, proc_rank);
+    }
     MPI_Finalize();
     return 0;
 }

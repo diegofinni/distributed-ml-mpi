@@ -1,3 +1,1 @@
-/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles/rebuild_cache.dir
-/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles/edit_cache.dir
-/Users/diegosanmiguel/Documents/Personal Work/afs/private/15418/distributed-ml-mpi/CMakeFiles/dml.dir
+/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/dml.dir
