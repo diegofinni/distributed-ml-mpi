@@ -30,21 +30,9 @@ int main(int argc, char **argv){
     if(!parse_flags(argc, argv, 5)) return 0;
     // Data is stored as a 2d vector. Each row is a pair of data, label.
     vector<vector<double> > data = input_data(infile);
-    
-    int proc_rank = 4;
-    int num_procs = 5;
-    // partition data
-    int num_rows = data.size();
-    int X = proc_rank * (num_rows / num_procs);
-    int Y = X + (num_rows / num_procs);
-    if(proc_rank == num_procs - 1) Y = data.size();
-    auto start = data.begin() + X;
-    auto end = data.begin() + Y;
-  
-    // To store the sliced vector
-    vector<vector<double> > data_shard(Y - X + 1);
-    // Copy vector using copy function()
-    copy(start, end, data_shard.begin());
+
+    double learning_rate = 0.01;
+    int num_epoch = 1000;
     
     /*
     // Debug: print the data vector
@@ -57,12 +45,21 @@ int main(int argc, char **argv){
     */
     
     init_theta((data[0]).size() - 1);
-
-    double learning_rate = 0.01;
-    int num_epoch = 2000;
+    init_gradient((data[0]).size() - 1);
 
     auto t1 = high_resolution_clock::now();
-    train(data, learning_rate, num_epoch);
+
+    for(int i=0; i<num_epoch; i++)
+    {
+        train(data, learning_rate, 1);
+       
+        // update theta
+        for(int j=0; j<theta.size(); j++) {
+            theta[j] -= learning_rate * gradient[j];
+        }
+        reset_gradient();
+    }
+
     auto t2 = high_resolution_clock::now();
 
     /* Getting number of milliseconds as a double. */

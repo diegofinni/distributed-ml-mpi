@@ -1,7 +1,9 @@
 #include <vector>
+#include <string>
 using namespace std;
 
 extern vector<double> theta;
+extern vector<double> gradient;
 extern string label1;
 extern string label2;
 
@@ -21,6 +23,16 @@ vector<vector<double> > input_data(string infile);
  * init_theta allocates space for theta, our parameter vector
  */
 void init_theta(int num_features);
+
+/*
+ * init_theta allocates space for gradient, our gradient vector
+ */
+void init_gradient(int num_features);
+
+/*
+ * reset_gradient sets our gradient vector to 0
+ */
+void reset_gradient();
 
 /*
  * dotprod takes the dotprod of v1 and v2, 

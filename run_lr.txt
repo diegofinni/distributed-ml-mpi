@@ -1,9 +1,11 @@
-Run without MPI:
+compile:
 
-g++ -o lr lr.cpp lr_main.cpp
-./lr data/weatherAUS.csv out.txt Yes No
+cmake --build .
 
-Run with MPI:
-mpic++ -o dml decentralized.cpp lr.cpp main.cpp
-mpirun -np 1 ./dml 20 0 data/smalldata.csv out.txt Yes No
-(Running out of address space?)
+Run mpi: 
+
+mpirun -np 6 ./lr 20 0 data/weatherAUS.csv out.txt Yes No
+
+Run seq:
+
+./lr_seq data/weatherAUS.csv out.txt Yes No

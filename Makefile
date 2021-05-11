@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -113,6 +113,131 @@ dml: cmake_check_build_system
 dml/fast:
 	$(MAKE) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/build
 .PHONY : dml/fast
+
+#=============================================================================
+# Target rules for targets named lr
+
+# Build rule for target.
+lr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lr
+.PHONY : lr
+
+# fast build rule for target.
+lr/fast:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/build
+.PHONY : lr/fast
+
+#=============================================================================
+# Target rules for targets named lr_seq
+
+# Build rule for target.
+lr_seq: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lr_seq
+.PHONY : lr_seq
+
+# fast build rule for target.
+lr_seq/fast:
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/build
+.PHONY : lr_seq/fast
+
+decentralized.o: decentralized.cpp.o
+.PHONY : decentralized.o
+
+# target to build an object file
+decentralized.cpp.o:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/decentralized.cpp.o
+.PHONY : decentralized.cpp.o
+
+decentralized.i: decentralized.cpp.i
+.PHONY : decentralized.i
+
+# target to preprocess a source file
+decentralized.cpp.i:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/decentralized.cpp.i
+.PHONY : decentralized.cpp.i
+
+decentralized.s: decentralized.cpp.s
+.PHONY : decentralized.s
+
+# target to generate assembly for a file
+decentralized.cpp.s:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/decentralized.cpp.s
+.PHONY : decentralized.cpp.s
+
+lr.o: lr.cpp.o
+.PHONY : lr.o
+
+# target to build an object file
+lr.cpp.o:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/lr.cpp.o
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr.cpp.o
+.PHONY : lr.cpp.o
+
+lr.i: lr.cpp.i
+.PHONY : lr.i
+
+# target to preprocess a source file
+lr.cpp.i:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/lr.cpp.i
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr.cpp.i
+.PHONY : lr.cpp.i
+
+lr.s: lr.cpp.s
+.PHONY : lr.s
+
+# target to generate assembly for a file
+lr.cpp.s:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/lr.cpp.s
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr.cpp.s
+.PHONY : lr.cpp.s
+
+lr_main.o: lr_main.cpp.o
+.PHONY : lr_main.o
+
+# target to build an object file
+lr_main.cpp.o:
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr_main.cpp.o
+.PHONY : lr_main.cpp.o
+
+lr_main.i: lr_main.cpp.i
+.PHONY : lr_main.i
+
+# target to preprocess a source file
+lr_main.cpp.i:
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr_main.cpp.i
+.PHONY : lr_main.cpp.i
+
+lr_main.s: lr_main.cpp.s
+.PHONY : lr_main.s
+
+# target to generate assembly for a file
+lr_main.cpp.s:
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr_main.cpp.s
+.PHONY : lr_main.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 master_node.o: master_node.cpp.o
 .PHONY : master_node.o
@@ -194,7 +319,21 @@ help:
 	@echo "... depend"
 	@echo "... dml"
 	@echo "... edit_cache"
+	@echo "... lr"
+	@echo "... lr_seq"
 	@echo "... rebuild_cache"
+	@echo "... decentralized.o"
+	@echo "... decentralized.i"
+	@echo "... decentralized.s"
+	@echo "... lr.o"
+	@echo "... lr.i"
+	@echo "... lr.s"
+	@echo "... lr_main.o"
+	@echo "... lr_main.i"
+	@echo "... lr_main.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... master_node.o"
 	@echo "... master_node.i"
 	@echo "... master_node.s"

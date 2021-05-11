@@ -24,6 +24,7 @@ using chrono::duration;
 using chrono::milliseconds;
 
 vector<double> theta;
+vector<double> gradient;
 string label1;
 string label2;
 int CUDA_ENABLE = 0;
@@ -37,7 +38,8 @@ int SPARSE_ENABLE = 0;
 vector<vector<double> > input_data(string infile) {
     vector<vector<double> > data;
     ifstream input_file(infile);
-    int row, num_cols = 0;
+    int row = 0;
+    int num_cols = 0;
     while (input_file) {
         string row_string;
         if (!getline(input_file, row_string)) break;
@@ -110,6 +112,28 @@ void init_theta(int num_features) {
 }
 
 /*
+ * init_theta allocates space for gradient, our gradient vector
+ */
+void init_gradient(int num_features) {
+    //theta.resize(num_features);
+    for(int i=0; i<num_features+1; i++) {
+        // We include an extra parameter for bias term
+        gradient.push_back(0);
+    }
+}
+
+/*
+ * reset_gradient sets our gradient vector to 0
+ */
+void reset_gradient() {
+    for(int i=0; i<gradient.size(); i++) {
+        // We include an extra parameter for bias term
+        gradient[i] = 0;
+    }
+}
+
+
+/*
  * dotprod takes the dotprod of v1 and v2, 
  * using the size of v2 (for functionality despite bias term)
  */
@@ -158,33 +182,27 @@ void SGD_step(vector<double> data_row, double learning_rate) {
     double sig = sigmoid(theta_dot_x + bias);
     //cout << "Sig: " << sig << " Label: " << label << endl;
 
-    double gradient = (sig - label);
-    
-    if(gradient < 0.1) {
+    double err = (sig - label);
+    /*
+    if(err < 0.1) {
         cout << "Correct" << endl;
     }
     else {
         cout << "Wrong" << endl;
     }
-    
-    for(int i=0; i<theta.size()-1; i++) {
-        theta[i] -= learning_rate * gradient * data_row[i];
-    }
-    theta.back() -= learning_rate * gradient;
-    /*
-    cout << "Theta: ";
-    for(auto param : theta) {
-        cout << param << " ";
-    }
-    cout << endl;
     */
+    
+    for(int i=0; i<gradient.size()-1; i++) {
+        gradient[i] += err * data_row[i];
+    }
+    gradient.back() += err;
 }
 
 /* 
  * train learns appropriate theta based on training data
 */
 void train(vector<vector<double> > data, double learning_rate, int num_epoch) {
-    
+    // Debug: print the data vector
     int rows = data.size();
     for(int i=0; i<num_epoch; i++) {
         for(int j=0; j<rows; j++) {

@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dml.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/dml.dir/flags.make
 
 CMakeFiles/dml.dir/serverTest.cpp.o: CMakeFiles/dml.dir/flags.make
 CMakeFiles/dml.dir/serverTest.cpp.o: serverTest.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/dml.dir/serverTest.cpp.o"
-	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dml.dir/serverTest.cpp.o -c /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/serverTest.cpp
+	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dml.dir/serverTest.cpp.o -c /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/serverTest.cpp
 
 CMakeFiles/dml.dir/serverTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dml.dir/serverTest.cpp.i"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/serverTest.cpp > CMakeFiles/dml.dir/serverTest.cpp.i
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/serverTest.cpp > CMakeFiles/dml.dir/serverTest.cpp.i
 
 CMakeFiles/dml.dir/serverTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dml.dir/serverTest.cpp.s"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/serverTest.cpp -o CMakeFiles/dml.dir/serverTest.cpp.s
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/serverTest.cpp -o CMakeFiles/dml.dir/serverTest.cpp.s
 
 CMakeFiles/dml.dir/serverTest.cpp.o.requires:
 .PHONY : CMakeFiles/dml.dir/serverTest.cpp.o.requires
@@ -77,17 +77,17 @@ CMakeFiles/dml.dir/serverTest.cpp.o.provides.build: CMakeFiles/dml.dir/serverTes
 
 CMakeFiles/dml.dir/master_node.cpp.o: CMakeFiles/dml.dir/flags.make
 CMakeFiles/dml.dir/master_node.cpp.o: master_node.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/dml.dir/master_node.cpp.o"
-	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dml.dir/master_node.cpp.o -c /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/master_node.cpp
+	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dml.dir/master_node.cpp.o -c /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/master_node.cpp
 
 CMakeFiles/dml.dir/master_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dml.dir/master_node.cpp.i"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/master_node.cpp > CMakeFiles/dml.dir/master_node.cpp.i
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/master_node.cpp > CMakeFiles/dml.dir/master_node.cpp.i
 
 CMakeFiles/dml.dir/master_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dml.dir/master_node.cpp.s"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/master_node.cpp -o CMakeFiles/dml.dir/master_node.cpp.s
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/master_node.cpp -o CMakeFiles/dml.dir/master_node.cpp.s
 
 CMakeFiles/dml.dir/master_node.cpp.o.requires:
 .PHONY : CMakeFiles/dml.dir/master_node.cpp.o.requires
@@ -100,17 +100,17 @@ CMakeFiles/dml.dir/master_node.cpp.o.provides.build: CMakeFiles/dml.dir/master_n
 
 CMakeFiles/dml.dir/worker_node.cpp.o: CMakeFiles/dml.dir/flags.make
 CMakeFiles/dml.dir/worker_node.cpp.o: worker_node.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/dml.dir/worker_node.cpp.o"
-	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dml.dir/worker_node.cpp.o -c /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/worker_node.cpp
+	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dml.dir/worker_node.cpp.o -c /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/worker_node.cpp
 
 CMakeFiles/dml.dir/worker_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dml.dir/worker_node.cpp.i"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/worker_node.cpp > CMakeFiles/dml.dir/worker_node.cpp.i
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/worker_node.cpp > CMakeFiles/dml.dir/worker_node.cpp.i
 
 CMakeFiles/dml.dir/worker_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dml.dir/worker_node.cpp.s"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/worker_node.cpp -o CMakeFiles/dml.dir/worker_node.cpp.s
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/worker_node.cpp -o CMakeFiles/dml.dir/worker_node.cpp.s
 
 CMakeFiles/dml.dir/worker_node.cpp.o.requires:
 .PHONY : CMakeFiles/dml.dir/worker_node.cpp.o.requires
@@ -153,6 +153,6 @@ CMakeFiles/dml.dir/clean:
 .PHONY : CMakeFiles/dml.dir/clean
 
 CMakeFiles/dml.dir/depend:
-	cd /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/dml.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/dml.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dml.dir/depend
 

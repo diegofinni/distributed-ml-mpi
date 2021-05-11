@@ -4,9 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/master_node.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/dml.dir/master_node.cpp.o"
-  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/serverTest.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/dml.dir/serverTest.cpp.o"
-  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/worker_node.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/dml.dir/worker_node.cpp.o"
+  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/master_node.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/dml.dir/master_node.cpp.o"
+  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/serverTest.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/dml.dir/serverTest.cpp.o"
+  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/worker_node.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/dml.dir/worker_node.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
