@@ -50,79 +50,79 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
 
 #=============================================================================
-# Target rules for target CMakeFiles/dml.dir
+# Target rules for target CMakeFiles/lr_centralized.dir
 
 # All Build rule for target.
-CMakeFiles/dml.dir/all:
-	$(MAKE) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/depend
-	$(MAKE) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles  1 2 3
-	@echo "Built target dml"
-.PHONY : CMakeFiles/dml.dir/all
+CMakeFiles/lr_centralized.dir/all:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/depend
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles  1 2 3
+	@echo "Built target lr_centralized"
+.PHONY : CMakeFiles/lr_centralized.dir/all
 
 # Include target in all.
-all: CMakeFiles/dml.dir/all
+all: CMakeFiles/lr_centralized.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/dml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/dml.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 0
-.PHONY : CMakeFiles/dml.dir/rule
+CMakeFiles/lr_centralized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lr_centralized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 0
+.PHONY : CMakeFiles/lr_centralized.dir/rule
 
 # Convenience name for target.
-dml: CMakeFiles/dml.dir/rule
-.PHONY : dml
+lr_centralized: CMakeFiles/lr_centralized.dir/rule
+.PHONY : lr_centralized
 
 # clean rule for target.
-CMakeFiles/dml.dir/clean:
-	$(MAKE) -f CMakeFiles/dml.dir/build.make CMakeFiles/dml.dir/clean
-.PHONY : CMakeFiles/dml.dir/clean
+CMakeFiles/lr_centralized.dir/clean:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/clean
+.PHONY : CMakeFiles/lr_centralized.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/dml.dir/clean
+clean: CMakeFiles/lr_centralized.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/lr.dir
+# Target rules for target CMakeFiles/lr_decentralized.dir
 
 # All Build rule for target.
-CMakeFiles/lr.dir/all:
-	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/depend
-	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles  4 5 6
-	@echo "Built target lr"
-.PHONY : CMakeFiles/lr.dir/all
+CMakeFiles/lr_decentralized.dir/all:
+	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/depend
+	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles  4 5 6
+	@echo "Built target lr_decentralized"
+.PHONY : CMakeFiles/lr_decentralized.dir/all
 
 # Include target in all.
-all: CMakeFiles/lr.dir/all
+all: CMakeFiles/lr_decentralized.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/lr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lr.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 0
-.PHONY : CMakeFiles/lr.dir/rule
+CMakeFiles/lr_decentralized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lr_decentralized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 0
+.PHONY : CMakeFiles/lr_decentralized.dir/rule
 
 # Convenience name for target.
-lr: CMakeFiles/lr.dir/rule
-.PHONY : lr
+lr_decentralized: CMakeFiles/lr_decentralized.dir/rule
+.PHONY : lr_decentralized
 
 # clean rule for target.
-CMakeFiles/lr.dir/clean:
-	$(MAKE) -f CMakeFiles/lr.dir/build.make CMakeFiles/lr.dir/clean
-.PHONY : CMakeFiles/lr.dir/clean
+CMakeFiles/lr_decentralized.dir/clean:
+	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/clean
+.PHONY : CMakeFiles/lr_decentralized.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/lr.dir/clean
+clean: CMakeFiles/lr_decentralized.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -132,7 +132,7 @@ clean: CMakeFiles/lr.dir/clean
 CMakeFiles/lr_seq.dir/all:
 	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/depend
 	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles  7 8
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles  7 8
 	@echo "Built target lr_seq"
 .PHONY : CMakeFiles/lr_seq.dir/all
 
@@ -142,9 +142,9 @@ all: CMakeFiles/lr_seq.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/lr_seq.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lr_seq.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 0
 .PHONY : CMakeFiles/lr_seq.dir/rule
 
 # Convenience name for target.

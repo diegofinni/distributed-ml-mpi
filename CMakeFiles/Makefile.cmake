@@ -44,7 +44,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/dml.dir/DependInfo.cmake"
-  "CMakeFiles/lr.dir/DependInfo.cmake"
+  "CMakeFiles/lr_centralized.dir/DependInfo.cmake"
+  "CMakeFiles/lr_decentralized.dir/DependInfo.cmake"
   "CMakeFiles/lr_seq.dir/DependInfo.cmake"
   )

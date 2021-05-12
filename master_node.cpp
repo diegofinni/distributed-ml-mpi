@@ -63,6 +63,7 @@ void manage_workers() {
         while (idx != MPI_UNDEFINED) {
             // Grab rank of sender and update its iters
             int rank = idx_to_rank(idx);
+            cout << rank << " completed iteration " << iters[idx] << endl;
             iters[idx]++;
             // Update master_params
             for (int i = 0; i < N; i++) {
@@ -78,6 +79,7 @@ void manage_workers() {
             // Find iter of straggler and halt worker if bound has been reached
             const int min = *min_element(iters, iters + num_workers);
             if (iters[idx] - min > bound ) {
+                cout << rank << " was halted" << endl;
                 halted_workers.insert(rank);
             }
             // Else send updated parameters to worker
@@ -94,6 +96,7 @@ void manage_workers() {
             }
             // Unhalt identified workers and send them new parameters
             for (set<int>::iterator it = unhalted_workers.begin(); it != unhalted_workers.end(); it++) {
+                cout << *it << " was unhalted" << endl;
                 halted_workers.erase(*it);
                 send_params(*it);
             }

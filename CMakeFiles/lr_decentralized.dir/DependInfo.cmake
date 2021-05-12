@@ -4,9 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/decentralized.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/lr.dir/decentralized.cpp.o"
-  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/lr.dir/lr.cpp.o"
-  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/main.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/lr.dir/main.cpp.o"
+  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/decentralized.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/lr_decentralized.dir/decentralized.cpp.o"
+  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/lr_decentralized.dir/lr.cpp.o"
+  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/main.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/lr_decentralized.dir/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
