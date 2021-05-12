@@ -25,6 +25,7 @@ int main(int argc, char* argv[]) {
     int N = atoi(argv[1]);
     int mode = atoi(argv[2]); // 0 = decentralized, 1 = centralized
     
+    
     // Check if arguments are valid
     if (N < 1 && mode == 0) {
         error_exit("Too few nodes for decentralized mode (At least 1 needed\n");
@@ -40,11 +41,14 @@ int main(int argc, char* argv[]) {
     cout << "The output file is: " << outfile << endl;
     label1 = string(argv[5]);
     label2 = string(argv[6]);
+
     cout << "label1 is: " << "\'" << label1 << "\'" << endl;
     cout << "label2 is: " << "\'" << label2 << "\'" << endl;
 
+    int num_epoch = stoi(argv[7]);
+    double learning_rate = stod(argv[8]);
     // Initializations
-    if(!parse_flags(argc, argv, 7)) return 0;
+    if(!parse_flags(argc, argv, 9)) return 0;
 
     // Initialize MPI environment
     MPI_Init(&argc, &argv);
@@ -84,21 +88,20 @@ int main(int argc, char* argv[]) {
     }
     */
     
-    
     init_theta((data[0]).size() - 1);
     init_gradient((data[0]).size() - 1);
     init_mpi_env(proc_rank, num_procs);
     ReduceFunction f = sum_reduce;
 
-    double learning_rate = 0.01;
-    int num_epoch = 1000;
+    
     auto t1 = high_resolution_clock::now();
 
+    int m = data_shard.size();
     for(int i=0; i<num_epoch; i++)
     {
         train(data_shard, learning_rate, 1);
 
-        //MPI_Barrier(MPI_COMM_WORLD);
+        //MPI_Barrier(MPI_COMM_WORLD); 
 
         // Now gradient is updated based on training data.
         // Send to other nodes
@@ -107,7 +110,7 @@ int main(int argc, char* argv[]) {
 
         // update theta
         for(int j=0; j<theta.size(); j++) {
-            theta[j] -= learning_rate * gradient[j];
+            theta[j] -= learning_rate * gradient[j] / m;
         }
         reset_gradient();
     }

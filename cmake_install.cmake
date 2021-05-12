@@ -1,4 +1,4 @@
-# Install script for directory: /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
+# Install script for directory: /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

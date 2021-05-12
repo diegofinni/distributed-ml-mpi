@@ -180,9 +180,13 @@ void SGD_step(vector<double> data_row, double learning_rate) {
     double theta_dot_x = ml_dotprod(theta, data_row);
     //cout << "Dot Prod: " << theta_dot_x << endl;
     double sig = sigmoid(theta_dot_x + bias);
+
     //cout << "Sig: " << sig << " Label: " << label << endl;
 
+    //double cost = label*(log(sig)) + (1-label)*(log(1-sig));
+    
     double err = (sig - label);
+    
     /*
     if(err < 0.1) {
         cout << "Correct" << endl;
@@ -204,6 +208,7 @@ void SGD_step(vector<double> data_row, double learning_rate) {
 void train(vector<vector<double> > data, double learning_rate, int num_epoch) {
     // Debug: print the data vector
     int rows = data.size();
+    double cost = 0;
     for(int i=0; i<num_epoch; i++) {
         for(int j=0; j<rows; j++) {
             SGD_step(data[j], learning_rate);
@@ -212,7 +217,7 @@ void train(vector<vector<double> > data, double learning_rate, int num_epoch) {
 }
 
 void print_usage() {
-    cout << "Usage: ./linear-regression [infile] [outfile] [label1] [label2] [-h for help] [-c to enable CUDA]\n";
+    cout << "Usage: ./linear-regression [infile] [outfile] [label1] [label2] [num_epoch] [learning_rate] [-h for help] \n";
 }
 
 /*

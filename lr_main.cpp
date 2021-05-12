@@ -26,13 +26,11 @@ int main(int argc, char **argv){
     cout << "label1 is: " << "\'" << label1 << "\'" << endl;
     cout << "label2 is: " << "\'" << label2 << "\'" << endl;
 
-    // Initializations
-    if(!parse_flags(argc, argv, 5)) return 0;
+    int num_epoch = stoi(argv[5]);
+    double learning_rate = stod(argv[6]);
+    if(!parse_flags(argc, argv, 7)) return 0;
     // Data is stored as a 2d vector. Each row is a pair of data, label.
     vector<vector<double> > data = input_data(infile);
-
-    double learning_rate = 0.01;
-    int num_epoch = 1000;
     
     /*
     // Debug: print the data vector
@@ -49,13 +47,15 @@ int main(int argc, char **argv){
 
     auto t1 = high_resolution_clock::now();
 
+    int m = data.size();
+    cout << m << endl;
     for(int i=0; i<num_epoch; i++)
     {
         train(data, learning_rate, 1);
        
         // update theta
         for(int j=0; j<theta.size(); j++) {
-            theta[j] -= learning_rate * gradient[j];
+            theta[j] -= learning_rate * gradient[j] / m;
         }
         reset_gradient();
     }

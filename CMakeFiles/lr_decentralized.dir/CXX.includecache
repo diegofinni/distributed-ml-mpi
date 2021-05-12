@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/decentralized.cpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/decentralized.cpp
 cstdlib
 -
 cstdio
@@ -14,13 +14,13 @@ cstdio
 mpi.h
 -
 decentralized.hpp
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/decentralized.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/decentralized.hpp
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/decentralized.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/decentralized.hpp
 vector
 -
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.cpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.cpp
 iostream
 -
 string
@@ -38,15 +38,15 @@ math.h
 chrono
 -
 lr.hpp
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.hpp
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.hpp
 vector
 -
 string
 -
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/main.cpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/main.cpp
 cstdio
 -
 cstdlib
@@ -58,9 +58,9 @@ iostream
 mpi.h
 -
 decentralized.hpp
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/decentralized.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/decentralized.hpp
 lr.hpp
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.hpp
 string
 -
 chrono
