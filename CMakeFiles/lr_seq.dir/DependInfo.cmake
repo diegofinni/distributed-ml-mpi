@@ -4,8 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/lr_seq.dir/lr.cpp.o"
-  "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr_main.cpp" "/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/lr_seq.dir/lr_main.cpp.o"
+  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/lr_seq.dir/lr.cpp.o"
+  "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/sequential_main.cpp" "/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/lr_seq.dir/sequential_main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -26,7 +26,7 @@ void update_params(vector<double>& params, int iter) {
 // Nang, replace this code with lr stuff
 // Outer for loop runs num_epoch times, call update_params after each iteration
 // Rank variable is unecessary
-void work(vector<double>& params, int num_epoch, int rank) {
+void work(vector<double>& params, int num_epoch, int rank, int num_workers, string infile) {
     num_epoch = num_epoch;
     
     // Data is stored as a 2d vector. Each row is a pair of data, label.
@@ -34,9 +34,9 @@ void work(vector<double>& params, int num_epoch, int rank) {
 
     // partition data
     int num_rows = data.size();
-    int X = proc_rank * (num_rows / num_procs);
-    int Y = X + (num_rows / num_procs);
-    if (proc_rank == num_procs - 1) Y = data.size();
+    int X = rank * (num_rows / num_workers);
+    int Y = X + (num_rows / num_workers);
+    if (rank == num_workers) Y = data.size();
     auto start = data.begin() + X;
     auto end = data.begin() + Y;
   
@@ -54,7 +54,7 @@ void work(vector<double>& params, int num_epoch, int rank) {
     double* recv_buf = (double*) malloc(theta.size() * sizeof(double));
     for (int i = 0; i < num_epoch; i++) {
         // Placeholder line here
-        train(data_shard, learning_rate, 1);
+        train(data_shard, 0, 1);
         
         update_params(gradient, i); // This is a lil weird variable-name wise on the master node side but we want to send over the gradient
         reset_gradient();

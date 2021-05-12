@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -140,6 +140,30 @@ lr_seq/fast:
 	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/build
 .PHONY : lr_seq/fast
 
+centralized_main.o: centralized_main.cpp.o
+.PHONY : centralized_main.o
+
+# target to build an object file
+centralized_main.cpp.o:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/centralized_main.cpp.o
+.PHONY : centralized_main.cpp.o
+
+centralized_main.i: centralized_main.cpp.i
+.PHONY : centralized_main.i
+
+# target to preprocess a source file
+centralized_main.cpp.i:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/centralized_main.cpp.i
+.PHONY : centralized_main.cpp.i
+
+centralized_main.s: centralized_main.cpp.s
+.PHONY : centralized_main.s
+
+# target to generate assembly for a file
+centralized_main.cpp.s:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/centralized_main.cpp.s
+.PHONY : centralized_main.cpp.s
+
 decentralized.o: decentralized.cpp.o
 .PHONY : decentralized.o
 
@@ -164,11 +188,36 @@ decentralized.cpp.s:
 	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/decentralized.cpp.s
 .PHONY : decentralized.cpp.s
 
+decentralized_main.o: decentralized_main.cpp.o
+.PHONY : decentralized_main.o
+
+# target to build an object file
+decentralized_main.cpp.o:
+	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.o
+.PHONY : decentralized_main.cpp.o
+
+decentralized_main.i: decentralized_main.cpp.i
+.PHONY : decentralized_main.i
+
+# target to preprocess a source file
+decentralized_main.cpp.i:
+	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.i
+.PHONY : decentralized_main.cpp.i
+
+decentralized_main.s: decentralized_main.cpp.s
+.PHONY : decentralized_main.s
+
+# target to generate assembly for a file
+decentralized_main.cpp.s:
+	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.s
+.PHONY : decentralized_main.cpp.s
+
 lr.o: lr.cpp.o
 .PHONY : lr.o
 
 # target to build an object file
 lr.cpp.o:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/lr.cpp.o
 	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/lr.cpp.o
 	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr.cpp.o
 .PHONY : lr.cpp.o
@@ -178,6 +227,7 @@ lr.i: lr.cpp.i
 
 # target to preprocess a source file
 lr.cpp.i:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/lr.cpp.i
 	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/lr.cpp.i
 	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr.cpp.i
 .PHONY : lr.cpp.i
@@ -187,57 +237,10 @@ lr.s: lr.cpp.s
 
 # target to generate assembly for a file
 lr.cpp.s:
+	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/lr.cpp.s
 	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/lr.cpp.s
 	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr.cpp.s
 .PHONY : lr.cpp.s
-
-lr_main.o: lr_main.cpp.o
-.PHONY : lr_main.o
-
-# target to build an object file
-lr_main.cpp.o:
-	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr_main.cpp.o
-.PHONY : lr_main.cpp.o
-
-lr_main.i: lr_main.cpp.i
-.PHONY : lr_main.i
-
-# target to preprocess a source file
-lr_main.cpp.i:
-	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr_main.cpp.i
-.PHONY : lr_main.cpp.i
-
-lr_main.s: lr_main.cpp.s
-.PHONY : lr_main.s
-
-# target to generate assembly for a file
-lr_main.cpp.s:
-	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/lr_main.cpp.s
-.PHONY : lr_main.cpp.s
-
-main.o: main.cpp.o
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/lr_decentralized.dir/build.make CMakeFiles/lr_decentralized.dir/main.cpp.s
-.PHONY : main.cpp.s
 
 master_node.o: master_node.cpp.o
 .PHONY : master_node.o
@@ -263,29 +266,29 @@ master_node.cpp.s:
 	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/master_node.cpp.s
 .PHONY : master_node.cpp.s
 
-serverTest.o: serverTest.cpp.o
-.PHONY : serverTest.o
+sequential_main.o: sequential_main.cpp.o
+.PHONY : sequential_main.o
 
 # target to build an object file
-serverTest.cpp.o:
-	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/serverTest.cpp.o
-.PHONY : serverTest.cpp.o
+sequential_main.cpp.o:
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/sequential_main.cpp.o
+.PHONY : sequential_main.cpp.o
 
-serverTest.i: serverTest.cpp.i
-.PHONY : serverTest.i
+sequential_main.i: sequential_main.cpp.i
+.PHONY : sequential_main.i
 
 # target to preprocess a source file
-serverTest.cpp.i:
-	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/serverTest.cpp.i
-.PHONY : serverTest.cpp.i
+sequential_main.cpp.i:
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/sequential_main.cpp.i
+.PHONY : sequential_main.cpp.i
 
-serverTest.s: serverTest.cpp.s
-.PHONY : serverTest.s
+sequential_main.s: sequential_main.cpp.s
+.PHONY : sequential_main.s
 
 # target to generate assembly for a file
-serverTest.cpp.s:
-	$(MAKE) -f CMakeFiles/lr_centralized.dir/build.make CMakeFiles/lr_centralized.dir/serverTest.cpp.s
-.PHONY : serverTest.cpp.s
+sequential_main.cpp.s:
+	$(MAKE) -f CMakeFiles/lr_seq.dir/build.make CMakeFiles/lr_seq.dir/sequential_main.cpp.s
+.PHONY : sequential_main.cpp.s
 
 worker_node.o: worker_node.cpp.o
 .PHONY : worker_node.o
@@ -322,24 +325,24 @@ help:
 	@echo "... lr_decentralized"
 	@echo "... lr_seq"
 	@echo "... rebuild_cache"
+	@echo "... centralized_main.o"
+	@echo "... centralized_main.i"
+	@echo "... centralized_main.s"
 	@echo "... decentralized.o"
 	@echo "... decentralized.i"
 	@echo "... decentralized.s"
+	@echo "... decentralized_main.o"
+	@echo "... decentralized_main.i"
+	@echo "... decentralized_main.s"
 	@echo "... lr.o"
 	@echo "... lr.i"
 	@echo "... lr.s"
-	@echo "... lr_main.o"
-	@echo "... lr_main.i"
-	@echo "... lr_main.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... master_node.o"
 	@echo "... master_node.i"
 	@echo "... master_node.s"
-	@echo "... serverTest.o"
-	@echo "... serverTest.i"
-	@echo "... serverTest.s"
+	@echo "... sequential_main.o"
+	@echo "... sequential_main.i"
+	@echo "... sequential_main.s"
 	@echo "... worker_node.o"
 	@echo "... worker_node.i"
 	@echo "... worker_node.s"

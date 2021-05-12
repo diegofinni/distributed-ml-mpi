@@ -17,50 +17,32 @@ using chrono::milliseconds;
  
 #define error_exit(fmt, ...) do { fprintf(stderr, "%s error: " fmt, __func__, ##__VA_ARGS__); exit(1); } while(0);
 
-int proc_rank, num_procs;
-
 int main(int argc, char* argv[]) {
 
     // Grab command line arguments
-    int N = atoi(argv[1]);
-    int mode = atoi(argv[2]); // 0 = decentralized, 1 = centralized
-    
-    
-    // Check if arguments are valid
-    if (N < 1 && mode == 0) {
-        error_exit("Too few nodes for decentralized mode (At least 1 needed\n");
-    }
-    else if (N < 2 && mode == 1) {
-        error_exit("Too few nodes for centralized mode (At least 2 needed\n");
-    }
-    
-    // Input data
+    int num_epoch = atoi(argv[1]);
+    int learning_rate = atoi(argv[2]);
     string infile = string(argv[3]);
     string outfile = string(argv[4]);
-    cout << "The input file is: " << infile << endl;
-    cout << "The output file is: " << outfile << endl;
     label1 = string(argv[5]);
     label2 = string(argv[6]);
+    string intro = "***************************************\nDecentralized Logistic Regression\n***************************************\n";
 
+    // Print out program intro
+    cout << intro << endl;
+    cout << "Number of epochs: " << num_epoch << endl;
+    cout << "Learning rate: " << learning_rate << endl;
+    cout << "The input file is: " << infile << endl;
+    cout << "The output file is: " << outfile << endl;
     cout << "label1 is: " << "\'" << label1 << "\'" << endl;
     cout << "label2 is: " << "\'" << label2 << "\'" << endl;
-
-    int num_epoch = stoi(argv[7]);
-    double learning_rate = stod(argv[8]);
-    // Initializations
-    if(!parse_flags(argc, argv, 9)) return 0;
+    cout << "***************************************" << endl;
 
     // Initialize MPI environment
+    int proc_rank, num_procs;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &proc_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
-
-    
-    // If there are less parameters than processes, we cannot proceed
-    if (num_procs > N && mode == 0) {
-        MPI_Finalize();
-        error_exit("Less parameters than there are processes (not allowed in decentralized mode)\n");
-    }
 
     // Data is stored as a 2d vector. Each row is a pair of data, label.
     vector<vector<double> > data = input_data(infile);
@@ -72,9 +54,15 @@ int main(int argc, char* argv[]) {
     if (proc_rank == num_procs - 1) Y = data.size();
     auto start = data.begin() + X;
     auto end = data.begin() + Y;
+
+    // If there are less parameters than processes, we cannot proceed
+    if (num_procs < data[0].size()) {
+        MPI_Finalize();
+        error_exit("Less parameters than there are processes (not allowed in decentralized mode)\n");
+    }
   
     // To store the sliced vector
-    vector<vector<double> > data_shard(Y - X);
+    vector<vector<double>> data_shard(Y - X);
     // Copy vector using copy function()
     copy(start, end, data_shard.begin());
     
@@ -100,9 +88,7 @@ int main(int argc, char* argv[]) {
     for(int i=0; i<num_epoch; i++)
     {
         train(data_shard, learning_rate, 1);
-
-        //MPI_Barrier(MPI_COMM_WORLD); 
-
+        MPI_Barrier(MPI_COMM_WORLD); 
         // Now gradient is updated based on training data.
         // Send to other nodes
         // Init MPI comm data structures and set reduce function
@@ -131,7 +117,6 @@ int main(int argc, char* argv[]) {
     printf("\n");
     
     // Exit program
-    //MPI_Finalize();
-    
+    MPI_Finalize();
     return 0; 
 }

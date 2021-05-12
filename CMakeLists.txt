@@ -9,9 +9,9 @@ find_package(MPI REQUIRED)
 
 include_directories(${MPI_INCLUDE_PATH})
 
-add_executable(lr_centralized serverTest.cpp master_node.hpp master_node.cpp worker_node.hpp worker_node.cpp)
-add_executable(lr_decentralized decentralized.cpp decentralized.hpp lr.cpp lr.hpp main.cpp)
-add_executable(lr_seq lr.cpp lr.hpp lr_main.cpp)
+add_executable(lr_centralized centralized_main.cpp master_node.hpp master_node.cpp worker_node.hpp worker_node.cpp lr.hpp lr.cpp)
+add_executable(lr_decentralized decentralized_main.cpp decentralized.cpp decentralized.hpp lr.cpp lr.hpp)
+add_executable(lr_seq sequential_main.cpp lr.cpp lr.hpp)
 
 target_link_libraries(lr_centralized ${MPI_LIBRARIES})
 target_link_libraries(lr_decentralized ${MPI_LIBRARIES})

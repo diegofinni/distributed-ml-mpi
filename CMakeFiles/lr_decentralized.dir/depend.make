@@ -6,12 +6,12 @@ CMakeFiles/lr_decentralized.dir/decentralized.cpp.o: decentralized.hpp
 CMakeFiles/lr_decentralized.dir/decentralized.cpp.o: /usr/local/depot/openmpi-4.0.2/include/mpi.h
 CMakeFiles/lr_decentralized.dir/decentralized.cpp.o: /usr/local/depot/openmpi-4.0.2/include/mpi_portable_platform.h
 
+CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.o: decentralized.hpp
+CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.o: decentralized_main.cpp
+CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.o: lr.hpp
+CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.o: /usr/local/depot/openmpi-4.0.2/include/mpi.h
+CMakeFiles/lr_decentralized.dir/decentralized_main.cpp.o: /usr/local/depot/openmpi-4.0.2/include/mpi_portable_platform.h
+
 CMakeFiles/lr_decentralized.dir/lr.cpp.o: lr.cpp
 CMakeFiles/lr_decentralized.dir/lr.cpp.o: lr.hpp
-
-CMakeFiles/lr_decentralized.dir/main.cpp.o: decentralized.hpp
-CMakeFiles/lr_decentralized.dir/main.cpp.o: lr.hpp
-CMakeFiles/lr_decentralized.dir/main.cpp.o: main.cpp
-CMakeFiles/lr_decentralized.dir/main.cpp.o: /usr/local/depot/openmpi-4.0.2/include/mpi.h
-CMakeFiles/lr_decentralized.dir/main.cpp.o: /usr/local/depot/openmpi-4.0.2/include/mpi_portable_platform.h
 

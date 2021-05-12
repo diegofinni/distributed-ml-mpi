@@ -1,7 +1,8 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/lr_centralized.dir/serverTest.cpp.o"
+  "CMakeFiles/lr_centralized.dir/centralized_main.cpp.o"
   "CMakeFiles/lr_centralized.dir/master_node.cpp.o"
   "CMakeFiles/lr_centralized.dir/worker_node.cpp.o"
+  "CMakeFiles/lr_centralized.dir/lr.cpp.o"
   "lr_centralized.pdb"
   "lr_centralized"
 )

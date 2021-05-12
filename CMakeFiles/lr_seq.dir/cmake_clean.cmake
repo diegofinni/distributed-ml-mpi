@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/lr_seq.dir/sequential_main.cpp.o"
   "CMakeFiles/lr_seq.dir/lr.cpp.o"
-  "CMakeFiles/lr_seq.dir/lr_main.cpp.o"
   "lr_seq.pdb"
   "lr_seq"
 )

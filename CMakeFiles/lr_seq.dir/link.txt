@@ -1,1 +1,1 @@
-/usr/lib64/ccache/c++       CMakeFiles/lr_seq.dir/lr.cpp.o CMakeFiles/lr_seq.dir/lr_main.cpp.o  -o lr_seq -rdynamic 
+/usr/lib64/ccache/c++       CMakeFiles/lr_seq.dir/sequential_main.cpp.o CMakeFiles/lr_seq.dir/lr.cpp.o  -o lr_seq -rdynamic 

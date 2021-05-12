@@ -1,3 +1,0 @@
-/Users/nathanan/Library/Mobile Documents/com~apple~CloudDocs/Documents/CMU_Spring_2021/Parallel Arch 15-418/Final Project/distributed-ml-mpi/example-app/build/CMakeFiles/rebuild_cache.dir
-/Users/nathanan/Library/Mobile Documents/com~apple~CloudDocs/Documents/CMU_Spring_2021/Parallel Arch 15-418/Final Project/distributed-ml-mpi/example-app/build/CMakeFiles/edit_cache.dir
-/Users/nathanan/Library/Mobile Documents/com~apple~CloudDocs/Documents/CMU_Spring_2021/Parallel Arch 15-418/Final Project/distributed-ml-mpi/example-app/build/CMakeFiles/example-app.dir

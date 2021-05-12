@@ -4,6 +4,6 @@
 CMakeFiles/lr_seq.dir/lr.cpp.o: lr.cpp
 CMakeFiles/lr_seq.dir/lr.cpp.o: lr.hpp
 
-CMakeFiles/lr_seq.dir/lr_main.cpp.o: lr.hpp
-CMakeFiles/lr_seq.dir/lr_main.cpp.o: lr_main.cpp
+CMakeFiles/lr_seq.dir/sequential_main.cpp.o: lr.hpp
+CMakeFiles/lr_seq.dir/sequential_main.cpp.o: sequential_main.cpp
 
