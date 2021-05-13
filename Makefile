@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

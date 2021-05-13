@@ -7,7 +7,7 @@
 #include <mpi.h>
 #include "master_node.hpp"
 
-MPI_Request *reqs;
+MPI_Request *reqs, end_req;
 vector<double> master_params;
 double **worker_params;
 set<int> halted_workers;
@@ -55,10 +55,14 @@ void send_params(int rank) {
     MPI_Irecv(worker_params[idx], N, MPI_DOUBLE, rank, 0, MPI_COMM_WORLD, &reqs[idx]);
 }
 
+void send_terminations() {
+    int a = -1;
+    MPI_Ibcast(&a, 1, MPI_INT, 0, MPI_COMM_WORLD, &end_req);
+}
+
 vector<double> manage_workers() {
-    int idx, flag;
+    int idx, flag, counter;
     while (1) {
-        usleep(SLEEP_INTERVAL);
         MPI_Testany(num_workers, reqs, &idx, &flag, MPI_STATUS_IGNORE);
         while (idx != MPI_UNDEFINED) {
             // Grab rank of sender and update its iters
@@ -70,17 +74,13 @@ vector<double> manage_workers() {
             for (int i = 0; i < N; i++) {
                 master_params[i] -= lr * worker_params[idx][i];
             }
-            // If worker has finished, decrease active worker count and check if can terminate
-            if (iters[idx] == epochs) {
-                active_workers--;
-                if (!active_workers) {
-                    return master_params;
-                }
+            if (++counter == epochs) {
+                send_terminations();
+                return master_params;
             }
             // Find iter of straggler and halt worker if bound has been reached
             const int min = *min_element(iters, iters + num_workers);
             if (iters[idx] - min > bound ) {
-                //cout << rank << " was halted" << endl;
                 halted_workers.insert(rank);
             }
             // Else send updated parameters to worker
@@ -97,7 +97,6 @@ vector<double> manage_workers() {
             }
             // Unhalt identified workers and send them new parameters
             for (set<int>::iterator it = unhalted_workers.begin(); it != unhalted_workers.end(); it++) {
-                //cout << *it << " was unhalted" << endl;
                 halted_workers.erase(*it);
                 send_params(*it);
             }
