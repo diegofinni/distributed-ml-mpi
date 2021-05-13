@@ -59,6 +59,7 @@ void reduce_phase(vector<double>& params, int N, int src, int dst, ReduceFunctio
         MPI_Recv(tmp, recv_size, MPI_DOUBLE, src, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         f(&(*params.begin()) + recv_start, tmp, recv_size);
     }
+    free(tmp);
 }
 
 void share_phase(vector<double>& params, int N, int src, int dst) {
@@ -103,4 +104,10 @@ void init_mpi_env(int rank, int num_procs) {
         if (i == my_rank) continue;
         recv_bcast(i);
     }
+}
+
+void free_mpi_env() {
+    free(bcast_reqs);
+    free(worlds);
+    free(node_iters);
 }

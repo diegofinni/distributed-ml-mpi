@@ -9,3 +9,5 @@ extern ReduceFunction sum_reduce;
 void reduce(vector<double>& params, int N, ReduceFunction f);
 
 void init_mpi_env(int rank, int num_procs);
+
+void free_mpi_env();

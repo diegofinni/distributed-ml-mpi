@@ -21,11 +21,12 @@ int main(int argc, char* argv[]) {
 
     // Grab command line arguments
     int num_epoch = atoi(argv[1]);
-    int learning_rate = atoi(argv[2]);
+    double learning_rate = stod(argv[2]);
     string infile = string(argv[3]);
     string outfile = string(argv[4]);
     label1 = string(argv[5]);
     label2 = string(argv[6]);
+    /*
     string intro = "***************************************\nDecentralized Logistic Regression\n***************************************\n";
 
     // Print out program intro
@@ -37,15 +38,19 @@ int main(int argc, char* argv[]) {
     cout << "label1 is: " << "\'" << label1 << "\'" << endl;
     cout << "label2 is: " << "\'" << label2 << "\'" << endl;
     cout << "***************************************" << endl;
+    */
+    
+
+    
+
+    // Data is stored as a 2d vector. Each row is a pair of data, label.
+    vector<vector<double> > data = input_data(infile);
 
     // Initialize MPI environment
     int proc_rank, num_procs;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &proc_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
-
-    // Data is stored as a 2d vector. Each row is a pair of data, label.
-    vector<vector<double> > data = input_data(infile);
     
     // partition data
     int num_rows = data.size();
@@ -55,11 +60,15 @@ int main(int argc, char* argv[]) {
     auto start = data.begin() + X;
     auto end = data.begin() + Y;
 
-    // If there are less parameters than processes, we cannot proceed
-    if (num_procs < data[0].size()) {
+
+    // If there are less rows than processes, return error
+    if (num_procs > data.size()) {
         MPI_Finalize();
         error_exit("Less parameters than there are processes (not allowed in decentralized mode)\n");
+        return 0;
     }
+    
+    
   
     // To store the sliced vector
     vector<vector<double>> data_shard(Y - X);
@@ -76,18 +85,18 @@ int main(int argc, char* argv[]) {
     }
     */
     
+    
     init_theta((data[0]).size() - 1);
     init_gradient((data[0]).size() - 1);
     init_mpi_env(proc_rank, num_procs);
     ReduceFunction f = sum_reduce;
-
     
     auto t1 = high_resolution_clock::now();
 
     int m = data_shard.size();
     for(int i=0; i<num_epoch; i++)
     {
-        train(data_shard, learning_rate, 1);
+        train(data_shard, 1);
         MPI_Barrier(MPI_COMM_WORLD); 
         // Now gradient is updated based on training data.
         // Send to other nodes
@@ -98,6 +107,7 @@ int main(int argc, char* argv[]) {
         for(int j=0; j<theta.size(); j++) {
             theta[j] -= learning_rate * gradient[j] / m;
         }
+
         reset_gradient();
     }
 
@@ -107,14 +117,21 @@ int main(int argc, char* argv[]) {
     /* Getting number of milliseconds as a double. */
     duration<double, milli> ms_double = t2 - t1;
 
-    cout << "Time of training: " << ms_double.count() << "ms" << endl;
 
-    // Print results
-    cout << "Theta after reduce" << endl;
-    for (int i = 0; i < theta.size(); i++) {
-        printf("(%d) %.3f ", proc_rank, theta[i]);
+    if(proc_rank == 0) {
+        printf("%.3f\n", ms_double.count() / 1000);
+        //cout << ms_double.count() << "seconds" << endl;
+        /*
+        // Print results
+        cout << "Theta after reduce" << endl;
+        for (int i = 0; i < theta.size(); i++) {
+            printf("(%d) %.3f ", proc_rank, theta[i]);
+        }
+        printf("\n");
+        */
     }
-    printf("\n");
+
+    free_mpi_env();
     
     // Exit program
     MPI_Finalize();

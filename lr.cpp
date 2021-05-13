@@ -16,6 +16,8 @@
 #include <math.h>
 #include <chrono>
 #include "lr.hpp"
+#include <omp.h>
+
 
 // Timing 
 using chrono::high_resolution_clock;
@@ -135,8 +137,11 @@ void reset_gradient() {
  * using the size of v2 (for functionality despite bias term)
  */
 double ml_dotprod(vector<double> params, vector<double> data) {
+    //omp_set_num_threads(3);
     double result = 0;
     // We don't include the last element of data, as it is the label
+    // Testing openmp
+    //#pragma omp parallel for reduction(+:result)
     for(int i=0; i<data.size()-1; i++) {
         result += params[i]*data[i];
     }

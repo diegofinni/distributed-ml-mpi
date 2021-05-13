@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_CXX_STANDARD 11)
-SET(GCC_COMPILE_FLAGS "--std=c++11")
+SET(GCC_COMPILE_FLAGS "-fopenmp --std=c++11")
 add_definitions(${GCC_COMPILE_FLAGS})
 
 project(dml)
@@ -9,7 +9,7 @@ find_package(MPI REQUIRED)
 
 include_directories(${MPI_INCLUDE_PATH})
 
-add_executable(lr_centralized centralized_main.cpp master_node.hpp master_node.cpp worker_node.hpp worker_node.cpp lr.hpp lr.cpp)
+add_executable(lr_centralized centralized_main.cpp lr.hpp lr.cpp master_node.hpp master_node.cpp worker_node.hpp worker_node.cpp )
 add_executable(lr_decentralized decentralized_main.cpp decentralized.cpp decentralized.hpp lr.cpp lr.hpp)
 add_executable(lr_seq sequential_main.cpp lr.cpp lr.hpp)
 
