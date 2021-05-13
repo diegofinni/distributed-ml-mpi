@@ -50,12 +50,12 @@ double sigmoid(double x);
  * 
  * Loss function: cross-entropy loss function
  */
-void SGD_step(vector<double> data_row, double learning_rate);
+void SGD_step(vector<double> data_row);
 
 /* 
  * train learns appropriate theta based on training data
 */
-void train(vector<vector<double> > data, double learning_rate, int num_epoch);
+void train(vector<vector<double> > data, int num_epoch);
 
 void print_usage();
 

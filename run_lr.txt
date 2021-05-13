@@ -5,7 +5,7 @@ cmake --build .
 Run mpi: 
 mpirun -np [num_proc] ./lr_decentralized [num_epoch] [learning_rate] [infile] [outfile] [label1] [label2] 
 
-mpirun -np 6 ./lr data/weatherAUS.csv out.txt Yes No 1000 0.01
+mpirun -np 6 ./lr_decentralized 1000 0.01 data/weatherAUS.csv out.txt Yes No 
 
 Run seq:
 

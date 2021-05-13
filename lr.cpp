@@ -1,5 +1,5 @@
 /*
- * linear-regression.cpp is an simple ML algorithm to make predictions based on a linear regression model.
+ * lr.cpp is an simple ML algorithm to make predictions based on a linear regression model.
  * 
  * Input data is stored as a 2d vector. Each row is vector<double> data, where the last element is the label.
  * We have to delete data that is not numeric.
@@ -126,10 +126,7 @@ void init_gradient(int num_features) {
  * reset_gradient sets our gradient vector to 0
  */
 void reset_gradient() {
-    for(int i=0; i<gradient.size(); i++) {
-        // We include an extra parameter for bias term
-        gradient[i] = 0;
-    }
+    fill(gradient.begin(), gradient.end(), 0);
 }
 
 
@@ -165,7 +162,7 @@ double sigmoid(double x) {
  * 
  * Loss function: cross-entropy loss function
  */
-void SGD_step(vector<double> data_row, double learning_rate) {
+void SGD_step(vector<double> data_row) {
     /*
     // Debugging: Print theta
     cout << "Theta: ";
@@ -205,13 +202,13 @@ void SGD_step(vector<double> data_row, double learning_rate) {
 /* 
  * train learns appropriate theta based on training data
 */
-void train(vector<vector<double> > data, double learning_rate, int num_epoch) {
+void train(vector<vector<double> > data, int num_epoch) {
     // Debug: print the data vector
     int rows = data.size();
     double cost = 0;
     for(int i=0; i<num_epoch; i++) {
         for(int j=0; j<rows; j++) {
-            SGD_step(data[j], learning_rate);
+            SGD_step(data[j]);
         }
     }
 }

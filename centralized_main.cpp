@@ -24,6 +24,8 @@ int main(int argc, char* argv[]) {
     string outfile = string(argv[5]);
     label1 = string(argv[6]);
     label2 = string(argv[7]);
+
+    /*
     string intro = "***************************************\nCentralized Logistic Regression\n***************************************\n";
 
     // Print out program intro
@@ -36,6 +38,7 @@ int main(int argc, char* argv[]) {
     cout << "label1 is: " << "\'" << label1 << "\'" << endl;
     cout << "label2 is: " << "\'" << label2 << "\'" << endl;
     cout << "***************************************" << endl;
+    */
 
     // Initialize MPI environment
     int rank, num_procs;
@@ -45,30 +48,65 @@ int main(int argc, char* argv[]) {
 
     auto t1 = high_resolution_clock::now();
 
-    vector<double> init_params(10, 0);
+    // Data is stored as a 2d vector. Each row is a pair of data, label.
+    vector<vector<double> > data = input_data(infile);
+
+    init_theta((data[0]).size() - 1);
+    init_gradient((data[0]).size() - 1);
+
     if (!rank) {
-        init_master_node(init_params, 
+        init_master_node(
+            theta,
             num_procs - 1,
             num_epoch,
             n_bound,
             learning_rate);
-        manage_workers();
+        theta = manage_workers();
     }
     else {
-        work(init_params,
+        // Data is stored as a 2d vector. Each row is a pair of data, label.
+        vector<vector<double> > data = input_data(infile);
+
+        int num_workers = num_procs - 1;
+
+        // partition data
+        int num_rows = data.size();
+        int X = (rank-1) * (num_rows / num_workers);
+        int Y = X + (num_rows / num_workers);
+        if (rank == num_workers) Y = data.size();
+        auto start = data.begin() + X;
+        auto end = data.begin() + Y;
+    
+        // To store the sliced vector
+        vector<vector<double> > data_shard(Y - X);
+        // Copy vector using copy function()
+        copy(start, end, data_shard.begin());
+
+        work(theta,
+            data_shard,
             num_epoch,
             rank,
             num_procs - 1,
             infile);
     }
 
-    auto t2 = high_resolution_clock::now();
-        /* Getting number of milliseconds as a double. */
-    duration<double, milli> ms_double = t2 - t1;
-
-    cout << "Time of training: " << ms_double.count() << "ms" << endl;
-
-    // Print parameters here
+    // Debugging: Print theta
+    if(!rank) {
+         auto t2 = high_resolution_clock::now();
+        /* Print time */
+        duration<double, milli> ms_double = t2 - t1;
+        printf("%.3f\n", ms_double.count() / 1000);
+        /*
+        // Note: theta may give different values because we do not divide by m, rows of data shard, in this
+        // finer-grained training model
+        
+        cout << "Theta: ";
+        for(auto param : theta) {
+            cout << param << " ";
+        }
+        cout << endl;
+        */
+    }
 
     MPI_Finalize();
     return 0;

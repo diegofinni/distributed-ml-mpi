@@ -5,4 +5,4 @@ using namespace std;
 
 void update_params(vector<double>& params);
 
-void work(vector<double>& params, int num_epoch, int rank, int num_workers, string infile);
+void work(vector<double>& params, vector<vector<double> > data_shard, int num_epoch, int rank, int num_workers, string infile);

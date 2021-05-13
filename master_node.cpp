@@ -55,7 +55,7 @@ void send_params(int rank) {
     MPI_Irecv(worker_params[idx], N, MPI_DOUBLE, rank, 0, MPI_COMM_WORLD, &reqs[idx]);
 }
 
-void manage_workers() {
+vector<double> manage_workers() {
     int idx, flag;
     while (1) {
         usleep(SLEEP_INTERVAL);
@@ -63,9 +63,10 @@ void manage_workers() {
         while (idx != MPI_UNDEFINED) {
             // Grab rank of sender and update its iters
             int rank = idx_to_rank(idx);
-            cout << rank << " completed iteration " << iters[idx] << endl;
+            //cout << rank << " completed iteration " << iters[idx] << endl;
             iters[idx]++;
             // Update master_params
+
             for (int i = 0; i < N; i++) {
                 master_params[i] -= lr * worker_params[idx][i];
             }
@@ -73,13 +74,13 @@ void manage_workers() {
             if (iters[idx] == epochs) {
                 active_workers--;
                 if (!active_workers) {
-                    return;
+                    return master_params;
                 }
             }
             // Find iter of straggler and halt worker if bound has been reached
             const int min = *min_element(iters, iters + num_workers);
             if (iters[idx] - min > bound ) {
-                cout << rank << " was halted" << endl;
+                //cout << rank << " was halted" << endl;
                 halted_workers.insert(rank);
             }
             // Else send updated parameters to worker
@@ -96,7 +97,7 @@ void manage_workers() {
             }
             // Unhalt identified workers and send them new parameters
             for (set<int>::iterator it = unhalted_workers.begin(); it != unhalted_workers.end(); it++) {
-                cout << *it << " was unhalted" << endl;
+                //cout << *it << " was unhalted" << endl;
                 halted_workers.erase(*it);
                 send_params(*it);
             }
