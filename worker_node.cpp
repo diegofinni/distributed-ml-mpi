@@ -9,6 +9,7 @@
 #include "decentralized.hpp"
 #include "lr.hpp"
 #include <string>
+#include <unistd.h>
 #include <chrono>
 
 // Timing 
@@ -28,6 +29,8 @@ void update_params(vector<double>& params, int iter) {
 // Outer for loop runs num_epoch times, call update_params after each iteration
 // Rank variable is unecessary
 void work(vector<double>& params, vector<vector<double> > data_shard, int num_epoch, int rank, int num_workers, string infile) {
+    unsigned int seed = time(NULL);
+    seed = ((seed & 0xFFFFFFF0) | (rank + 1));
     int flag = 0;
     int a = 0;
     MPI_Ibcast(&a, 1, MPI_INT, 0, MPI_COMM_WORLD, &end_sig);
@@ -37,7 +40,11 @@ void work(vector<double>& params, vector<vector<double> > data_shard, int num_ep
     double* recv_buf = (double*) malloc(theta.size() * sizeof(double));
     int i = 0;
     while (1) {
-        if (i > num_epoch) cout << "hey" << endl;
+        unsigned int seed = time(NULL);
+        seed = ((seed & 0xFFFFFFF0) | (rank + 1));
+        if (seed % 4 == 0) {
+            sleep(1);
+        }
         MPI_Test(&end_sig, &flag, MPI_STATUS_IGNORE);
         if (flag) {
             return;
