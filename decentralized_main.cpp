@@ -26,6 +26,7 @@ int main(int argc, char* argv[]) {
     string outfile = string(argv[4]);
     label1 = string(argv[5]);
     label2 = string(argv[6]);
+    if(!parse_flags(argc, argv, 7)) return 0;
     /*
     string intro = "***************************************\nDecentralized Logistic Regression\n***************************************\n";
 
@@ -40,9 +41,6 @@ int main(int argc, char* argv[]) {
     cout << "***************************************" << endl;
     */
     
-
-    
-
     // Data is stored as a 2d vector. Each row is a pair of data, label.
     vector<vector<double> > data = input_data(infile);
 
@@ -59,7 +57,6 @@ int main(int argc, char* argv[]) {
     if (proc_rank == num_procs - 1) Y = data.size();
     auto start = data.begin() + X;
     auto end = data.begin() + Y;
-
 
     // If there are less rows than processes, return error
     if (num_procs > data.size()) {
@@ -84,7 +81,6 @@ int main(int argc, char* argv[]) {
         cout << endl;
     }
     */
-    
     
     init_theta((data[0]).size() - 1);
     init_gradient((data[0]).size() - 1);

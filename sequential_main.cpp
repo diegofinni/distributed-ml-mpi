@@ -59,12 +59,13 @@ int main(int argc, char **argv){
 
     // Now theta is updated based on training data.
     // Send to other nodes
-
+    /*
     // Debugging: Print theta
     cout << "Theta: ";
     for(auto param : theta) {
         cout << param << " ";
     }
     cout << endl;
+    */
     return 0; 
 }

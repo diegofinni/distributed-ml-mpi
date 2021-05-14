@@ -24,6 +24,7 @@ int main(int argc, char* argv[]) {
     string outfile = string(argv[5]);
     label1 = string(argv[6]);
     label2 = string(argv[7]);
+    if(!parse_flags(argc, argv, 8)) return 0;
 
     /*
     string intro = "***************************************\nCentralized Logistic Regression\n***************************************\n";

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_CXX_STANDARD 11)
-SET(GCC_COMPILE_FLAGS "-fopenmp --std=c++11")
+SET(GCC_COMPILE_FLAGS "-pthread -fopenmp -g --std=c++11 -L/usr/local/depot/cuda-10.2/lib64 -I/usr/local/depot/cuda-10.2/include -I"include" -lcusparse -lcudart")
 add_definitions(${GCC_COMPILE_FLAGS})
 
 project(dml)

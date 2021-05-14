@@ -18,6 +18,10 @@
 #include "lr.hpp"
 #include <omp.h>
 
+#include <thrust/host_vector.h>
+#include <thrust/device_vector.h>
+#include <thrust/inner_product.h>
+#include <thrust/execution_policy.h>
 
 // Timing 
 using chrono::high_resolution_clock;
@@ -31,6 +35,7 @@ string label1;
 string label2;
 int CUDA_ENABLE = 0;
 int SPARSE_ENABLE = 0;
+int N_s = 600;
 
 /*
  * input_data parses a csv file data into a 2d vector. Each row has vector data followed by the label (0 or 1).
@@ -137,13 +142,19 @@ void reset_gradient() {
  * using the size of v2 (for functionality despite bias term)
  */
 double ml_dotprod(vector<double> params, vector<double> data) {
-    //omp_set_num_threads(3);
     double result = 0;
-    // We don't include the last element of data, as it is the label
-    // Testing openmp
-    //#pragma omp parallel for reduction(+:result)
-    for(int i=0; i<data.size()-1; i++) {
-        result += params[i]*data[i];
+
+    if(CUDA_ENABLE) {
+        auto start = params.begin();
+        auto end = params.begin() + N_s;
+        double result = thrust::inner_product(thrust::host, start, end, data.begin(), 0.0);
+    }
+    else {
+        // Sequential
+        //#pragma omp parallel for reduction(+:result) num_threads(2) // test?
+        for(int i=0; i<params.size()-1; i++) {
+            result += params[i]*data[i];
+       }
     }
     return result;
 }
@@ -237,8 +248,9 @@ int parse_flags(int argc, char **argv, int offset) {
                     return 0;
                 case 'c': 
                     CUDA_ENABLE = 1;
-                    cout << "CUDA not implemented yet";
-                    return 0;
+                    //cout << "CUDA enabled!";
+                    i+=1;
+                    break;
                 case 's':
                     SPARSE_ENABLE = 1;
                     cout << "Sparse vectors not implemented yet";
