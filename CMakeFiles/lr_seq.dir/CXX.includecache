@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.cpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.cpp
 iostream
 -
 string
@@ -24,19 +24,27 @@ math.h
 chrono
 -
 lr.hpp
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.hpp
 omp.h
 -
+thrust/host_vector.h
+-
+thrust/device_vector.h
+-
+thrust/inner_product.h
+-
+thrust/execution_policy.h
+-
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.hpp
 vector
 -
 string
 -
 
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/sequential_main.cpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/sequential_main.cpp
 lr.hpp
-/afs/andrew.cmu.edu/usr20/dsanmigu/private/15418/distributed-ml-mpi/lr.hpp
+/afs/andrew.cmu.edu/usr4/nathanan/private/15418/finalProject/distributed-ml-mpi/lr.hpp
 iostream
 -
 string
